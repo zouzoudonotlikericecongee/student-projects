@@ -1,0 +1,34 @@
+/* 设置包含表格的容器，这里称为 .table-container */
+.table-container {
+  display: flex;
+}
+
+/* 设置每个表格的样式 */
+.table {
+  flex: 1;
+  position: relative;
+  margin-bottom: 50px; /* 调整表格间距 */
+  text-align: center;
+}
+
+/* 在每个表格底部中间创建一个连接点 */
+.table::after {
+  content: "";
+  position: absolute;
+  width: 2px; /* 连接线的宽度 */
+  height: 50px; /* 连接线的高度 */
+  background-color: #333; /* 连接线的颜色 */
+  bottom: -50px; /* 位于表格底部中间 */
+  left: 50%; /* 表格中间 */
+  transform: translateX(-50%); /* 居中 */
+}
+
+/* 调整第一个表格连接线的位置 */
+.table:first-child::after {
+  display: none; /* 隐藏第一个表格的连接线 */
+}
+
+/* 调整最后一个表格的样式，去掉连接线 */
+.table:last-child::after {
+  content: none; /* 隐藏连接线 */
+}
